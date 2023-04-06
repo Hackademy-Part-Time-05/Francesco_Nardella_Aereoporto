@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\FlightController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [FlightController::class, 'index'])->name('index');
+Route::get('/dettagli-volo/{id}', [FlightController::class, 'show'])->name('show');
+
+
+
